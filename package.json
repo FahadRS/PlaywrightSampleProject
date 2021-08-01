@@ -1,0 +1,18 @@
+{
+  "name": "playwrighttest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "playwright": "^1.13.0"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.13.0",
+    "qawolf": "^2.6.1"
+  }
+}
