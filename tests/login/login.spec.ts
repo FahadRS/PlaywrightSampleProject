@@ -7,7 +7,7 @@ test.describe('two tests', () => {
 
     test('should login', async  ({ page }) => {
 
-        await Driver.goto("https://redaction.beta.vidizmo.com");
+        await Driver.goto("");
       
       
         
@@ -16,7 +16,7 @@ test.describe('two tests', () => {
         for ( let i=0; i< 2; i++ ){
             try{
                 console.log("main called called");
-                await Driver.waitForSelector('[data-e2e-userprofileid="579661"]');
+                await Driver.waitForSelector('[data-e2e-userprofileid="4564"]');
             }
             catch(error){
                 console.log("exception called");
