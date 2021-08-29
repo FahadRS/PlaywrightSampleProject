@@ -1,0 +1,22 @@
+{
+  "name": "playwrighttest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-signup": "Set PLAYWRIGHT_JUNIT_OUTPUT_NAME=reports/signup.xml && npx playwright test --project=accountSignUp",
+    "test-login": "set PLAYWRIGHT_JUNIT_OUTPUT_NAME=reports/login.xml && npx playwright test --project=login --workers=5"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "playwright": "^1.13.0"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.13.0",
+    "@types/fs-extra": "^9.0.12",
+    "fs-extra": "^10.0.0",
+    "qawolf": "^2.6.1",
+    "types": "^0.1.1"
+  }
+}
