@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-signup": "Set PLAYWRIGHT_JUNIT_OUTPUT_NAME=reports/signup.xml && npx playwright test --project=accountSignUp",
-    "test-login": "set PLAYWRIGHT_JUNIT_OUTPUT_NAME=reports/login.xml && npx playwright test --project=login --workers=5"
+    "test-signup": "npx playwright test --project=accountSignUp",
+    "test-login": "npx playwright test --project=login --workers=5"
   },
   "author": "",
   "license": "ISC",

@@ -1,4 +1,4 @@
-import  { readJSON, pathExists, writeJSON, copyFile, pathExistsSync } from 'fs-extra';
+import  { readJSON, pathExists, writeJSON, copyFile, pathExistsSync, rename } from 'fs-extra';
 import { Driver } from '../Driver';
 
 export class FileService {
@@ -27,5 +27,9 @@ export class FileService {
 
     public static async copyFile(filePath : string, destination : string) : Promise<void> {
         await copyFile(filePath, destination);     
+    }
+
+    public static async renameFile(oldPath : string, newPath : string) : Promise<void> {
+        await rename(oldPath, newPath);     
     }
 }

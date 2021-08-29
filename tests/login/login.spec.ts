@@ -7,9 +7,9 @@ test.describe('two tests', () => {
     test('should login', async  ({ page }) => {
 
         await Driver.goto("https://redaction.beta.vidizmo.com");
-        await Driver.fill("#EmailAddress","redaction@sharklasers.com");
-        await Driver.fill("#Password","Admin@123");     
-        await Driver.click('#Signin');
+        await Driver.fill("#EmailAddress","reaction@sharklasers.com");
+        await Driver.fill("#Passworddd","Admin@123");     
+        //await Driver.click('#Signin');
         await Driver.waitForSelector('[data-e2e-userprofileid="579661"]');
         await page.context().storageState({ path: 'state.json' });
         // await Driver.swithToNewBrowser();

@@ -1,7 +1,15 @@
+
+let outputFileName = "results.xml";
+if (process.argv && process.argv.length > 0){
+  let project = process.argv.find(a=> a.startsWith("--project"));
+  if (project){
+    outputFileName = "reports/" + project.split("=").pop() + ".xml"; 
+  }  
+ }  
 import { PlaywrightTestConfig } from '@playwright/test';
 const config: PlaywrightTestConfig = {
-  reporter: [ ['junit'] , [ 'list' ]  ],
- timeout : 60000,
+  reporter: [ ['junit', { outputFile : outputFileName}]],
+ timeout : 30000,
  globalSetup : require.resolve('./global-setup'),
  globalTeardown : require.resolve('./global-teardown'),
  workers : 1,
@@ -21,6 +29,8 @@ const config: PlaywrightTestConfig = {
     browserName : "chromium",
     acceptDownloads : true,
     headless: false,
+    // actionTimeout : 5000,
+    // navigationTimeout : 10000,
     
     //launchOptions : {
     // executablePath :  "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
@@ -38,4 +48,5 @@ const config: PlaywrightTestConfig = {
     
   },
 };
+
 export default config;

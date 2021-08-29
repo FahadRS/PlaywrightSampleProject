@@ -16,24 +16,37 @@ import { test } from "../../test";
   
 
 
-    test('should upload file', async  ({ page }) => {
+    test('should upload file', async  ({ page }, testInfo) => {
 
+      
     
+      await test.step('Go to Main Portal', async () => {
+        await Driver.goto("https:/redaction.beta.vidizmo.com");
+      });
+
+      await test.step('Download File', async () => {
+        if (!await FileService.fileExists("./test.mp4")){
+          let downloadPath = await Driver.downloadFile("https://docs.google.com/uc?export=download&id=12m6Mfja-xiam6aOiXxEqLO-xzwrejnSS");
+          await FileService.copyFile(downloadPath, "./test.mp4")
+          await Driver.exitNewBrowser();
+        }
+        else{
+          console.log("file already exists");
+        }
+      });
+
+      await test.step('Go to the Upload Page', async () => {
+        await Driver.goto("https://redaction.beta.vidizmo.com/media-manager/add-media/upload-video");
+      });
+
       
-      await Driver.goto("https:/redaction.beta.vidizmo.com");
       
-      if (!await FileService.fileExists("./test.mp4")){
-        let downloadPath = await Driver.downloadFile("https://docs.google.com/uc?export=download&id=12m6Mfja-xiam6aOiXxEqLO-xzwrejnSS");
-        await FileService.copyFile(downloadPath, "./test.mp4")
-        await Driver.exitNewBrowser();
-      }
-      else{
-        console.log("file already exists");
-      }
+      
+      
+     
 
    
       
-      await Driver.goto("https://redaction.beta.vidizmo.com/media-manager/add-media/upload-video");
    //   await Driver.click('[data-e2e-link="uploadCtrl"]');
 
 
@@ -44,11 +57,10 @@ import { test } from "../../test";
       ]);
     
   //    console.log("set files");
-      await fileChooser.setFiles('./test.mp4');
+  //    await fileChooser.setFiles('./test.mp4');
 
       console.log("sleeping");
-      await Driver.sleep(5);
-
+    
        //await AccountSignUpService.signup();   
    //  console.log(ContextService.userEmailAddress);
     });
