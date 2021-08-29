@@ -29,8 +29,8 @@ const config: PlaywrightTestConfig = {
     browserName : "chromium",
     acceptDownloads : true,
     headless: false,
-    // actionTimeout : 5000,
-    // navigationTimeout : 10000,
+     actionTimeout : 5000,
+     navigationTimeout : 10000,
     
     //launchOptions : {
     // executablePath :  "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",

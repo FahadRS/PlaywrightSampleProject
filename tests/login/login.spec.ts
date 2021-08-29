@@ -8,12 +8,27 @@ test.describe('two tests', () => {
     test('should login', async  ({ page }) => {
 
         await Driver.goto("https://redaction.beta.vidizmo.com");
-        await Driver.fill("#EmailAddress","reaction@sharklasers.com");
-        await WorkflowService.increaseTimeOut();
+      
+      
         
-        await Driver.fill("#Passworddd","Admin@123");     
+       await Driver.fill("#Password","Admin@123");     
         //await Driver.click('#Signin');
-        await Driver.waitForSelector('[data-e2e-userprofileid="579661"]');
+        for ( let i=0; i< 2; i++ ){
+            try{
+                console.log("main called called");
+                await Driver.waitForSelector('[data-e2e-userprofileid="579661"]');
+            }
+            catch(error){
+                console.log("exception called");
+
+            }
+           // performance
+        }
+
+        await WorkflowService.returnPromise();
+
+        
+        await Driver.fill("#EmailAddress","reaction@sharklasers.com");
         await page.context().storageState({ path: 'state.json' });
         // await Driver.swithToNewBrowser();
         // await Driver.goto("https://playwright.dev");
