@@ -1,4 +1,5 @@
 import { Driver } from "../../Driver";
+import { WorkflowService } from "../../page-objects/workflow.service";
 import { test } from "../../test";
 
      
@@ -8,6 +9,8 @@ test.describe('two tests', () => {
 
         await Driver.goto("https://redaction.beta.vidizmo.com");
         await Driver.fill("#EmailAddress","reaction@sharklasers.com");
+        await WorkflowService.increaseTimeOut();
+        
         await Driver.fill("#Passworddd","Admin@123");     
         //await Driver.click('#Signin');
         await Driver.waitForSelector('[data-e2e-userprofileid="579661"]');

@@ -8,7 +8,7 @@ if (process.argv && process.argv.length > 0){
  }  
 import { PlaywrightTestConfig } from '@playwright/test';
 const config: PlaywrightTestConfig = {
-  reporter: [ ['junit', { outputFile : outputFileName}]],
+  reporter: [["line"], ['junit', { outputFile : outputFileName}]  ,],
  timeout : 30000,
  globalSetup : require.resolve('./global-setup'),
  globalTeardown : require.resolve('./global-teardown'),

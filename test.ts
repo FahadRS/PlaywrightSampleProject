@@ -1,14 +1,13 @@
 // hello.ts
-import { test as base  } from '@playwright/test';
+import { test as base, TestFixture, TestInfo  } from '@playwright/test';
 import { Driver } from './Driver';
 import { ContextService } from './services/context.service';
 
 
-let test = base.extend({
-  page: async ({page, browser, viewport, contextOptions} , use) => {
+let test = base.extend<{},TestInfo>({
+  page: async ({page, browser, viewport, contextOptions} , use, testInfo) => {
 
-    
-    
+    Driver.testInfo = testInfo;
     Driver.pages = [page];
     Driver.browser = browser;
     Driver.viewPort = viewport;

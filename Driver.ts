@@ -1,4 +1,4 @@
-import { Browser, BrowserContextOptions, errors, Page, ViewportSize } from "@playwright/test";
+import { Browser, BrowserContextOptions, errors, Page, TestInfo, ViewportSize } from "@playwright/test";
 import { EventType } from "./models/test-context";
 import config from "./playwright.config";
 
@@ -8,6 +8,7 @@ export class  Driver {
   static browser : Browser;
   static viewPort : ViewportSize;
   static contextOptions : BrowserContextOptions;
+  static testInfo : TestInfo;
 
   /* active page which is currently present on the screen */
   static activePageIndex : number = 0;
@@ -90,6 +91,15 @@ export class  Driver {
 
   static async setContent(htmlContent : string) : Promise<void> {
     await this.getPage().setContent(htmlContent);
+  }
+
+  static async setTimeout(timeSec : number) : Promise<void> {
+    await this.testInfo.setTimeout(this.testInfo.timeout + (timeSec * 1000));
+  }
+
+  static async resetTimeOut() : Promise<void> {
+    console.log(this.testInfo.duration);
+    await this.testInfo.setTimeout(this.testInfo.timeout + 30* 1000);
   }
  
   static async downloadFile(fileUrl : string) : Promise<string> {

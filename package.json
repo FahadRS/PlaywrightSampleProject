@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-signup": "npx playwright test --project=accountSignUp",
-    "test-login": "npx playwright test --project=login --workers=5"
+    "test-signup": "npx playwright test --project=accountSignUp --shard=1/3",
+    "test-login": "npx playwright test --project=login --workers=5 --shard=1/3"
   },
   "author": "",
   "license": "ISC",

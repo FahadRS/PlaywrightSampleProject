@@ -1,0 +1,32 @@
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="41.029">
+<testsuite name="tests\login\login.spec.ts" timestamp="1630259871935" hostname="" tests="1" failures="1" skipped="0" time="40.07" errors="0">
+<testcase name="two tests should login" classname="[login] › tests\login\login.spec.ts:8:5 › two tests should login" time="40.07">
+<failure message="login.spec.ts:8:5 should login" type="FAILURE">
+  [login] › tests\login\login.spec.ts:8:5 › two tests should login =================================
+
+    Timeout of 40000ms exceeded.
+
+    Pending operations:
+      - page.fill at Driver.ts:53:28
+
+    page.fill: Protocol error (Runtime.callFunctionOn): Target closed.
+    =========================== logs ===========================
+    waiting for selector "#Passworddd"
+    ============================================================
+
+      11 |         await Driver.fill("#EmailAddress","reaction@sharklasers.com");
+      12 |         await WorkflowService.increaseTimeOut();
+    > 13 |         await Driver.fill("#Passworddd","Admin@123");     
+         |                      ^
+      14 |         //await Driver.click('#Signin');
+      15 |         await Driver.waitForSelector('[data-e2e-userprofileid="579661"]');
+      16 |         await page.context().storageState({ path: 'state.json' });
+
+        at Function.fill (C:\Users\Fahad\Documents\playwright\playwrighttest\Driver.ts:53:28)
+        at C:\Users\Fahad\Documents\playwright\playwrighttest\tests\login\login.spec.ts:13:22
+        at WorkerRunner._runTestWithBeforeHooks (C:\Users\Fahad\Documents\playwright\playwrighttest\node_modules\@playwright\test\lib\test\workerRunner.js:426:7)
+
+</failure>
+</testcase>
+</testsuite>
+</testsuites>
